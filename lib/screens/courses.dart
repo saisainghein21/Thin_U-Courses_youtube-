@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/course_lesson_videos.dart';
@@ -17,7 +15,7 @@ class CourseListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8F8F8),
+      backgroundColor: Colors.white10,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
@@ -84,27 +82,40 @@ class CourseListScreen extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Container(
-              height: 230,
+              height: 250,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     margin: EdgeInsets.only(right: 10.0),
-                    color: Colors.white,
-                    child: SizedBox(
-                      width: 170,
-                      height: 170,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CourseCard(
-                              courseTitle: 'Course $index',
-                              authorName: 'Author Name',
-                              imageAssetPath: 'images/CourseIntro$index.jpg',
-                            ),
-                          ],
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 4.0,
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: SizedBox(
+                        width: 170,
+                        height: 170,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CourseCard(
+                                courseTitle: 'Course $index',
+                                authorName: 'Author Name',
+                                imageAssetPath: 'images/CourseIntro$index.jpg',
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -112,7 +123,7 @@ class CourseListScreen extends StatelessWidget {
                 },
               ),
             ),
-
+            SizedBox(height: 10),
             Row(
               children: [
                 Text(
@@ -146,27 +157,40 @@ class CourseListScreen extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Container(
-              height: 230,
+              height: 250,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     margin: EdgeInsets.only(right: 10.0),
-                    color: Colors.white,
-                    child: SizedBox(
-                      width: 170,
-                      height: 170,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CourseCard(
-                              courseTitle: 'Course $index',
-                              authorName: 'Author Name',
-                              imageAssetPath: 'images/CourseIntro$index.jpg',
-                            ),
-                          ],
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 4.0,
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: SizedBox(
+                        width: 170,
+                        height: 170,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CourseCard(
+                                courseTitle: 'Course $index',
+                                authorName: 'Author Name',
+                                imageAssetPath: 'images/CourseIntro$index.jpg',
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -189,11 +213,13 @@ class CourseCard extends StatelessWidget {
   final String courseTitle;
   final String authorName;
   final String imageAssetPath;
+  final double titleFontSize;
 
   CourseCard({
     required this.courseTitle,
     required this.authorName,
     required this.imageAssetPath,
+    this.titleFontSize = 16.0,
   });
 
   @override
@@ -241,18 +267,21 @@ class CourseCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CourseDetailScreen(
-                    courseTitle: courseTitle,
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CourseDetailScreen(
+                      courseTitle: courseTitle,
+                    ),
                   ),
-                ),
-              );
-            },
-            child: Text('View Course'),
+                );
+              },
+              child: Text('View Course'),
+            ),
           ),
         ],
       ),
@@ -275,6 +304,7 @@ class CourseDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.deepPurpleAccent,
         title: Text('Course Preview'),
       ),
       body: SingleChildScrollView(
@@ -302,16 +332,19 @@ class CourseDetailScreen extends StatelessWidget {
                       fontSize: 20,
                     ),
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text('Learn how to build a secure ecommerce application'),
                   SizedBox(
                     height: 10,
                   ),
                   Row(
                     children: [
-                      Icon(Icons.star, color: Colors.yellow),
-                      Icon(Icons.star, color: Colors.yellow),
-                      Icon(Icons.star, color: Colors.yellow),
-                      Icon(Icons.star, color: Colors.yellow),
+                      Icon(Icons.star, color: Color(0xFFF3BA27)),
+                      Icon(Icons.star, color: Color(0xFFF3BA27)),
+                      Icon(Icons.star, color: Color(0xFFF3BA27)),
+                      Icon(Icons.star, color: Color(0xFFF3BA27)),
                       Icon(Icons.star_border),
                     ],
                   ),
@@ -373,47 +406,45 @@ class CourseDetailScreen extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius:
-                      BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
                     padding: EdgeInsets.all(20.0),
+                    height: 500,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                      Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                      'Curriculum',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20),
-                                    ),
-                                  ),
-                                ],
+                        Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                'Curriculum',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
                               ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                      '10 Lessons | 100m total length',
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13),
-                                    ),
-                                  ),
-                                ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                '10 Lessons | 100m total length',
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 13),
                               ),
-                              SizedBox(height: 20.0),
-                              // -------------------------------------Lesson Details
-                              // ------------------------------------------
-                              // -----------------------------------------
-                              Container(
-                                height: 250, // Adjust the height as needed
-                                child: CourseLessonScreen(), //CoursePage(),
-                              ),
-
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20.0),
+                        // -------------------------------------Lesson Details
+                        // ------------------------------------------
+                        // -----------------------------------------
+                        Container(
+                          height: 380,
+                          child: CourseLessonScreen(), //CoursePage(),
+                        ),
                       ],
                     ),
                   ),
@@ -597,40 +628,34 @@ class CourseDetailScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          'This course is the followup to Building Modern Web Applications in here. In this course, we go further than we did the first time around. We will build a sample E-Commerce application that consists of multiple, separate applications: ... ',
+                          'This course is the followup to Building Modern Web Applications in here. In this course, we go further than we did the first time around. We will build a sample E-Commerce application that consists of multiple, separate applications. ',
                           style: TextStyle(fontSize: 15.0, height: 1.5),
                         ),
                         SizedBox(height: 5),
-                        Text(
-                          'Show more ...',
-                          style: TextStyle(color: Colors.purple),
-                        )
                       ],
                     ),
                   ),
 
                   SizedBox(height: 30),
 
-                  //---------------------------------- Instructor
-                  // -------------------------------------
-                  // ------------------------------------------
                   Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Grey background color
+                      borderRadius:
+                          BorderRadius.circular(16.0), // Set the border radius
+                    ),
+                    padding: EdgeInsets.all(20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Instructor Title
-                        Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Text(
-                            'Instructor',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        Text(
+                          'Instructor',
+                          style: TextStyle(
+                            fontSize: 19.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-
-                        // Instructor Info
+                        SizedBox(height: 16.0),
                         Padding(
                           padding: EdgeInsets.all(16.0),
                           child: Column(
@@ -678,7 +703,7 @@ class CourseDetailScreen extends StatelessWidget {
                               Container(
                                 width: 330, // Adjust the width as needed
                                 child: Text(
-                                  'I have twenty years of experience in professional software development, and twenty years of experience as a University professor. As an entrepreneur, I have worked with a broad range of clients, including Thomson...',
+                                  'I have twenty years of experience in professional software development, and twenty years of experience as a University professor. As an entrepreneur, I have worked with a broad range of clients, including Thomson.',
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                     height:
@@ -689,59 +714,130 @@ class CourseDetailScreen extends StatelessWidget {
                               SizedBox(
                                 height: 5,
                               ),
-                              Text(
-                                'Show more',
-                                style: TextStyle(color: Colors.purple),
-                              )
-                            ],
-                          ),
-                        ),
-
-                        // View Profile Button
-                        Center(
-                          child: SizedBox(
-                            width: 200.0, // Set the desired width
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.purple,
-                              ),
-                              child: Text('View Profile'),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(
-                          height: 30,
-                        ),
-                        // Student Feedback Title
-
-                        Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Text(
-                            'Rating',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Column(
-                            children: [
-                              _buildRatingBar('5 Stars', 5), // 95% rating
-                              _buildRatingBar('4 Stars', 4), // 80% rating
-                              _buildRatingBar('3 Stars', 3), // 60% rating
-                              _buildRatingBar('2 Stars', 2), // 40% rating
-                              _buildRatingBar('1 Star', 1), // 20% rating
                             ],
                           ),
                         ),
                       ],
                     ),
                   ),
+
+                  //---------------------------------- Instructor
+                  // -------------------------------------
+                  // ------------------------------------------
+                  // Container(
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       // Instructor Title
+                  //       Padding(
+                  //         padding: EdgeInsets.all(16.0),
+                  //         child: Text(
+                  //           'Instructor',
+                  //           style: TextStyle(
+                  //             fontSize: 20,
+                  //             fontWeight: FontWeight.bold,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //
+                  //       // Instructor Info
+                  //       Padding(
+                  //         padding: EdgeInsets.all(16.0),
+                  //         child: Column(
+                  //           crossAxisAlignment: CrossAxisAlignment.start,
+                  //           children: [
+                  //             Text(
+                  //               'John Doe',
+                  //               style: TextStyle(
+                  //                   fontSize: 18,
+                  //                   fontWeight: FontWeight.bold,
+                  //                   color: Colors.purple),
+                  //             ),
+                  //             Text('Ph.D.'),
+                  //             SizedBox(height: 8.0),
+                  //             Row(
+                  //               children: [
+                  //                 CircleAvatar(
+                  //                   radius: 50.0,
+                  //                   backgroundImage:
+                  //                       AssetImage('images/CourseIntro1.jpg'),
+                  //                 ),
+                  //                 SizedBox(width: 16.0),
+                  //                 Column(
+                  //                   crossAxisAlignment:
+                  //                       CrossAxisAlignment.start,
+                  //                   children: [
+                  //                     Text('Instructor Rating: 4.7'),
+                  //                     SizedBox(
+                  //                       height: 5,
+                  //                     ),
+                  //                     Text('Reviews: 863'),
+                  //                     SizedBox(
+                  //                       height: 5,
+                  //                     ),
+                  //                     Text('Students: 2,345'),
+                  //                     SizedBox(
+                  //                       height: 5,
+                  //                     ),
+                  //                     Text('Courses: 12'),
+                  //                   ],
+                  //                 ),
+                  //               ],
+                  //             ),
+                  //             SizedBox(height: 16.0),
+                  //             Container(
+                  //               width: 330, // Adjust the width as needed
+                  //               child: Text(
+                  //                 'I have twenty years of experience in professional software development, and twenty years of experience as a University professor. As an entrepreneur, I have worked with a broad range of clients, including Thomson.',
+                  //                 textAlign: TextAlign.justify,
+                  //                 style: TextStyle(
+                  //                   height:
+                  //                       1.5, // This sets the line height (line spacing)
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //             SizedBox(
+                  //               height: 5,
+                  //             ),
+                  //
+                  //           ],
+                  //         ),
+                  //       ),
+                  //
+                  //
+                  //
+                  //
+                  //       SizedBox(
+                  //         height: 30,
+                  //       ),
+                  //       // Student Feedback Title
+                  //
+                  //       Padding(
+                  //         padding: EdgeInsets.all(16.0),
+                  //         child: Text(
+                  //           'Rating',
+                  //           style: TextStyle(
+                  //             fontSize: 20,
+                  //             fontWeight: FontWeight.bold,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //
+                  //       Padding(
+                  //         padding: EdgeInsets.all(16.0),
+                  //         child: Column(
+                  //           children: [
+                  //             _buildRatingBar('5 Stars', 5), // 95% rating
+                  //             _buildRatingBar('4 Stars', 4), // 80% rating
+                  //             _buildRatingBar('3 Stars', 3), // 60% rating
+                  //             _buildRatingBar('2 Stars', 2), // 40% rating
+                  //             _buildRatingBar('1 Star', 1), // 20% rating
+                  //           ],
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
             ),

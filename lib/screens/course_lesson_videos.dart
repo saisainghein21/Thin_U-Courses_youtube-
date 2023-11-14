@@ -32,6 +32,7 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
       return CircularProgressIndicator();
     }
     return Container(
+
         // margin: EdgeInsets.all(10.0),
         //
         // height: 100.0,
@@ -94,12 +95,11 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
         ),
       ),
       child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-          // padding: EdgeInsets.all(10.0),
-
+          margin: EdgeInsets.symmetric(horizontal: 0.0, vertical: 2.0),
           height: 70.0,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Colors.black12,
+            borderRadius: BorderRadius.circular(5),
             boxShadow: [
               BoxShadow(
                 color: Colors.white,
@@ -109,6 +109,7 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
             ],
           ),
           child: Row(
+
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
