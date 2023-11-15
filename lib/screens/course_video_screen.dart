@@ -3,9 +3,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import 'course_lesson_videos.dart';
 
-
 class VideoScreen extends StatefulWidget {
-
   final String id;
   final String title;
 
@@ -16,7 +14,6 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
-
   late YoutubePlayerController _controller;
 
   @override
@@ -34,7 +31,10 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurpleAccent,
+        title: Text(widget.title),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -47,25 +47,59 @@ class _VideoScreenState extends State<VideoScreen> {
             ),
           ),
           SizedBox(height: 10.0),
-          Text(
-            widget.title,
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      "Author name - ",
+                      style: TextStyle(
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Building Web Applications - Intermediate Level',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text('Learn how to build a secure ecommerce application'),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(height: 10.0),
-          Container(
-            height: 600,
-            child: CourseLessonScreen(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Container(
+              height: 450,
+              child: CourseLessonScreen(),
+            ),
           ),
         ],
       ),
     );
   }
-
-
-
-
-
 }

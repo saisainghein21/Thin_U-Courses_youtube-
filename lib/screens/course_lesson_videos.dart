@@ -95,7 +95,8 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
         ),
       ),
       child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 0.0, vertical: 2.0),
+
+          margin: EdgeInsets.symmetric(horizontal: 0.0, vertical: 3.0),
           height: 70.0,
           decoration: BoxDecoration(
             color: Colors.black12,
