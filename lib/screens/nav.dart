@@ -3,6 +3,7 @@ import 'package:flutter_app/components/colors.dart';
 import 'package:flutter_app/screens/courses.dart';
 import 'package:flutter_app/screens/post_form.dart';
 import 'package:flutter_app/screens/post_screen.dart';
+import 'package:flutter_app/screens/watchlist.dart';
 
 import 'profile.dart';
 import 'search.dart';
@@ -22,7 +23,7 @@ class _NavState extends State<Nav> {
     PostScreen(),
     CourseListScreen(),
     SearchPage(),
-    PostScreen(),
+    WatchList(),
     Profile(),
   ];
   String username = 'Richard';

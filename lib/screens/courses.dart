@@ -1,15 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/course_lesson_videos.dart';
+import 'course_cat_detail.dart';
 import 'course_single_video.dart';
 
-class CourseListScreen extends StatelessWidget {
+class CourseListScreen extends StatefulWidget {
+  @override
+  _CourseListScreenState createState() => _CourseListScreenState();
+}
+
+class _CourseListScreenState extends State<CourseListScreen> {
+  String selectedCategory = "All Topics";
   final List<String> categories = [
     "All Topics",
     "Technology",
     "Arts",
     "Engineering",
     "Marketing",
+    "Business",
+    "Guitar",
+    "AI",
+    "Design",
+    "Music"
   ];
 
   @override
@@ -41,13 +53,37 @@ class CourseListScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         // Handle category selection
+                        setState(() {
+                          selectedCategory = category;
+                        });
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                CourseCatDetail(selectedCategory: category),
+                          ),
+                        );
                       },
-                      child: Text(category),
+                      child: Text(
+                        category,
+                        style: TextStyle(
+                          color: selectedCategory == category
+                              ? Colors.white
+                              : Colors.black, // Set text color based on selection
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: selectedCategory == category
+                            ? Colors.deepPurpleAccent
+                            : Colors.blue, // Set background color based on selection
+                      ),
                     ),
                   );
                 }).toList(),
               ),
             ),
+
             SizedBox(height: 16),
             Row(
               children: [
@@ -101,10 +137,10 @@ class CourseListScreen extends StatelessWidget {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: const EdgeInsets.only(left: 15),
                       child: SizedBox(
-                        width: 170,
-                        height: 170,
+                        width: 140,
+                        height: 140,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -176,10 +212,10 @@ class CourseListScreen extends StatelessWidget {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: const EdgeInsets.only(left: 15),
                       child: SizedBox(
-                        width: 170,
-                        height: 170,
+                        width: 140,
+                        height: 140,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -237,6 +273,7 @@ class CourseCard extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => CourseDetailScreen(
                     courseTitle: courseTitle,
+                    title: '',
                   ),
                 ),
               );
@@ -268,7 +305,7 @@ class CourseCard extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Padding(
-            padding: const EdgeInsets.only(left: 20.0),
+            padding: const EdgeInsets.only(left: 0.0),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -276,11 +313,19 @@ class CourseCard extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => CourseDetailScreen(
                       courseTitle: courseTitle,
+                      title: '',
                     ),
                   ),
                 );
               },
-              child: Text('View Course'),
+              child: Text(
+                'View Course',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+
             ),
           ),
         ],
@@ -298,6 +343,7 @@ class CourseDetailScreen extends StatelessWidget {
 
   CourseDetailScreen({
     required this.courseTitle,
+    required String title,
   });
 
   @override
@@ -306,6 +352,12 @@ class CourseDetailScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
         title: Text('Course Preview'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).popUntil((route) => route.isFirst);
+          },
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
