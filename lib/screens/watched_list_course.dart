@@ -159,42 +159,42 @@ class WatchedList extends StatelessWidget {
       children: [
         WatchedItem(
           imageAssetPath: 'images/CourseIntro0.jpg',
-          text: 'Course 0',
+          text: 'Python Basics',
           percent: 90,
           imageUrl: '',
           height: 100,
         ),
         WatchedItem(
           imageAssetPath: 'images/CourseIntro1.jpg',
-          text: 'Course 1',
+          text: 'Teaching Strategies',
           percent: 75,
           imageUrl: '',
           height: 100,
         ),
         WatchedItem(
           imageAssetPath: 'images/CourseIntro2.jpg',
-          text: 'Course 2',
+          text: 'Java Fundamentals',
           percent: 50,
           imageUrl: '',
           height: 100,
         ),
         WatchedItem(
           imageAssetPath: 'images/CourseIntro3.jpg',
-          text: 'Course 3',
+          text: 'JavaScript Mastery',
           percent: 30,
           imageUrl: '',
           height: 100,
         ),
         WatchedItem(
           imageAssetPath: 'images/CourseIntro4.jpg',
-          text: 'Course 4',
+          text: 'Vue.js Essentials',
           percent: 10,
           imageUrl: '',
           height: 100,
         ),
         WatchedItem(
           imageAssetPath: 'images/CourseIntro5.jpg',
-          text: 'Course 5',
+          text: 'HTML 5 Fundamentals',
           percent: 100,
           imageUrl: '',
           height: 100,
@@ -262,7 +262,7 @@ class WatchedItem extends StatelessWidget {
                       children: [
                         Text(
                           text,
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xFF216CAF)),
                         ),
                         SizedBox(height: 8),
                         Text('Watched: $percent%'),
