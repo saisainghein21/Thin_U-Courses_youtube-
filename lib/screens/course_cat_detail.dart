@@ -354,6 +354,7 @@ class _CourseCatDetailState extends State<CourseCatDetail> {
         title: Text(widget.selectedCategory, style: TextStyle(color: Colors.white)),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
+          color: Colors.white,
           onPressed: () {
             Navigator.of(context).popUntil((route) => route.isFirst);
           },
@@ -503,8 +504,8 @@ class _CourseCatDetailState extends State<CourseCatDetail> {
                       child: Text(category, style: TextStyle(color: Colors.white),),
                       style: ElevatedButton.styleFrom(
                         primary: widget.selectedCategory == category
-                            ? Colors.deepPurpleAccent
-                            : Colors.blue,
+                            ? Color(0xFF4d4dbf)
+                            : Color(0xFF6b86f7),
                       ),
                     ),
                   );

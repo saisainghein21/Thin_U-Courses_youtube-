@@ -90,24 +90,22 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-
           builder: (_) => VideoScreen(id: video.id, title: video.title),
         ),
       ),
       child: Container(
-
           margin: EdgeInsets.symmetric(horizontal: 0.0, vertical: 3.0),
           height: 70.0,
           decoration: BoxDecoration(
-            color: Colors.black12,
+            color: Color(0x0D000000),
             borderRadius: BorderRadius.circular(5),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white,
-                offset: Offset(0, 0),
-                blurRadius: 4.0,
-              ),
-            ],
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.white,
+            //     offset: Offset(0, 0),
+            //     blurRadius: 0.0,
+            //   ),
+            // ],
           ),
           child: Row(
 
@@ -137,7 +135,7 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
                         alignment: Alignment.centerRight,
                         child: Icon(
                           Icons.remove_red_eye_outlined,
-                          color: Colors.green,
+                          color: Color(0xFF4d4dbf),
                         ),
                       ),
                     ),
