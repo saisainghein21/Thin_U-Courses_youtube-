@@ -425,8 +425,7 @@ class CourseCard extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color(
-                        0xFF4d4dbf),
+                    primary: Color(0xFF4d4dbf),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(2.0),
@@ -483,560 +482,449 @@ class CourseDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF4d4dbf),
-        title: Text(
-          'Course Preview',
-          style: TextStyle(color: Colors.white),
-        ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          color: Colors.white,
-          onPressed: () {
-            Navigator.of(context).popUntil((route) => route.isFirst);
-          },
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Video Preview
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: Container(
-                child: SingleScreen(), //VideoPlayerScreen(),
-                color: Colors.grey, // Placeholder for video preview
-              ),
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Color(0xFF4d4dbf),
+            title: Text(
+              'Course Preview',
+              style: TextStyle(color: Colors.white),
             ),
-            // Title and Info
-            Padding(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Building Web Applications - Intermediate Level',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              },
+            ),
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Video Preview
+                AspectRatio(
+                  aspectRatio:
+                      orientation == Orientation.portrait ? 16 / 9 : 9 / 16,
+                  child: Container(
+                    child: SingleScreen(), // VideoPlayerScreen(),
+                    color: Colors.grey, // Placeholder for video preview
                   ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text('Learn how to build a secure ecommerce application'),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
+                ),
+                // Title and Info
+                Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.star, color: Color(0xFFF3BA27)),
-                      Icon(Icons.star, color: Color(0xFFF3BA27)),
-                      Icon(Icons.star, color: Color(0xFFF3BA27)),
-                      Icon(Icons.star, color: Color(0xFFF3BA27)),
-                      Icon(Icons.star_border),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text('344 ratings, 100 students'),
-                    ],
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Created by TS',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colors.purple),
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.warning, color: Colors.black, size: 20),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text('Last updated 3/2023'),
+                      Text(
+                        'Building Web Applications - Intermediate Level',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
                       ),
-                    ],
-                  ),
-
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black12, // Grey background color
-                      borderRadius:
-                          BorderRadius.circular(10.0), // Set the border radius
-                    ),
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'What You\'ll Learn',
-                          style: TextStyle(
-                            fontSize: 19.0,
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text('Learn how to build a secure ecommerce application'),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.star, color: Color(0xFFF3BA27)),
+                          Icon(Icons.star, color: Color(0xFFF3BA27)),
+                          Icon(Icons.star, color: Color(0xFFF3BA27)),
+                          Icon(Icons.star, color: Color(0xFFF3BA27)),
+                          Icon(Icons.star_border),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text('344 ratings, 100 students'),
+                        ],
+                      ),
+                      SizedBox(height: 16),
+                      Text(
+                        'Created by TS',
+                        style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.purple),
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.warning, color: Colors.black, size: 20),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Text('Last updated 3/2023'),
                           ),
+                        ],
+                      ),
+
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black12, // Grey background color
+                          borderRadius: BorderRadius.circular(
+                              10.0), // Set the border radius
                         ),
-                        SizedBox(height: 16.0),
-                        // List of sentences with "right" icons
-                        _buildLearnListItem('How to build a back end API'),
-                        _buildLearnListItem('How to build a front end website'),
-                        _buildLearnListItem('How to build microservices'),
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(height: 15.0),
-                  // Lessons Section
-
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    padding:
-                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 5),
-                    height: 500,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
+                        padding: EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                'Curriculum',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                            Text(
+                              'What You\'ll Learn',
+                              style: TextStyle(
+                                fontSize: 19.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
+                            SizedBox(height: 16.0),
+                            // List of sentences with "right" icons
+                            _buildLearnListItem('How to build a back end API'),
+                            _buildLearnListItem(
+                                'How to build a front end website'),
+                            _buildLearnListItem('How to build microservices'),
                           ],
                         ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                '10 Lessons | 100m total length',
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 13),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 20.0),
-                        // -------------------------------------Lesson Details
-                        // ------------------------------------------
-                        // -----------------------------------------
-                        Container(
-                          height: 380,
+                      ),
+
+                      SizedBox(height: 15.0),
+                      // Lessons Section
+
+                      Container(
+                        decoration: BoxDecoration(
                           color: Colors.white,
-                          child: CourseLessonScreen(), //CoursePage(),
+                          borderRadius: BorderRadius.circular(16.0),
                         ),
-                      ],
-                    ),
-                  ),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 10.0, horizontal: 5),
+                        height: 500,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
+                                  child: Text(
+                                    'Curriculum',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
+                                  child: Text(
+                                    '10 Lessons | 100m total length',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 13),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 20.0),
+                            // -------------------------------------Lesson Details
+                            // ------------------------------------------
+                            // -----------------------------------------
+                            Container(
+                              height: 380,
+                              color: Colors.white,
+                              child: CourseLessonScreen(), //CoursePage(),
+                            ),
+                          ],
+                        ),
+                      ),
 
-                  SizedBox(height: 15),
+                      SizedBox(height: 15),
 
 //---------------------------------- This course includes
-                  // -------------------------------------
+                      // -------------------------------------
 
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black12, // Grey background color
-                      borderRadius:
-                          BorderRadius.circular(16.0), // Set the border radius
-                    ),
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'This course includes',
-                          style: TextStyle(
-                            fontSize: 19.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black12, // Grey background color
+                          borderRadius: BorderRadius.circular(
+                              16.0), // Set the border radius
                         ),
-                        SizedBox(height: 16.0),
-                        Row(
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(Icons.video_library_rounded,
-                                color: Colors.black, size: 17),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text('100 minutes on-demand video'),
+                            Text(
+                              'This course includes',
+                              style: TextStyle(
+                                fontSize: 19.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ],
-                        ),
-                        SizedBox(height: 5.0),
-                        Row(
-                          children: [
-                            Icon(Icons.quiz_outlined,
-                                color: Colors.black, size: 17),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text('1 Quiz'),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.0),
-                        Row(
-                          children: [
-                            Icon(Icons.file_open,
-                                color: Colors.black, size: 17),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text('25 Support files'),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.0),
-                        Row(
-                          children: [
-                            Icon(Icons.mobile_friendly,
-                                color: Colors.black, size: 17),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text('Access on mobile and desktop'),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.0),
-                        Row(
-                          children: [
-                            Icon(Icons.price_change,
-                                color: Colors.black, size: 17),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text('Certificate of completion'),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(height: 15),
-
-                  //---------------------------------- Requirements
-                  // -------------------------------------
-                  // ------------------------------------------
-
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white, // Grey background color
-                      borderRadius:
-                          BorderRadius.circular(16.0), // Set the border radius
-                    ),
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Requirements',
-                          style: TextStyle(
-                            fontSize: 19.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 16.0),
-                        Row(
-                          children: [
-                            Icon(Icons.arrow_right,
-                                color: Colors.black, size: 17),
-                            Expanded(
-                              // Wrap the text in an Expanded widget
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  'A basic understanding of the programming language',
+                            SizedBox(height: 16.0),
+                            Row(
+                              children: [
+                                Icon(Icons.video_library_rounded,
+                                    color: Colors.black, size: 17),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text('100 minutes on-demand video'),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
-                        SizedBox(height: 5.0),
-                        Row(
-                          children: [
-                            Icon(Icons.arrow_right,
-                                color: Colors.black, size: 17),
-                            Expanded(
-                              // Wrap the text in an Expanded widget
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  'A basic understanding of HTML, CSS and JavaScript',
+                            SizedBox(height: 5.0),
+                            Row(
+                              children: [
+                                Icon(Icons.quiz_outlined,
+                                    color: Colors.black, size: 17),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text('1 Quiz'),
                                 ),
-                              ),
+                              ],
+                            ),
+                            SizedBox(height: 5.0),
+                            Row(
+                              children: [
+                                Icon(Icons.file_open,
+                                    color: Colors.black, size: 17),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text('25 Support files'),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5.0),
+                            Row(
+                              children: [
+                                Icon(Icons.mobile_friendly,
+                                    color: Colors.black, size: 17),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text('Access on mobile and desktop'),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5.0),
+                            Row(
+                              children: [
+                                Icon(Icons.price_change,
+                                    color: Colors.black, size: 17),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text('Certificate of completion'),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        SizedBox(height: 5.0),
-                        Row(
+                      ),
+
+                      SizedBox(height: 15),
+
+                      //---------------------------------- Requirements
+                      // -------------------------------------
+                      // ------------------------------------------
+
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white, // Grey background color
+                          borderRadius: BorderRadius.circular(
+                              16.0), // Set the border radius
+                        ),
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(Icons.arrow_right,
-                                color: Colors.black, size: 17),
-                            Expanded(
-                              // Wrap the text in an Expanded widget
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child:
-                                    Text('A basic understanding of SQL Syntax'),
+                            Text(
+                              'Requirements',
+                              style: TextStyle(
+                                fontSize: 19.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(height: 15),
-
-                  //---------------------------------- Description
-                  // -------------------------------------
-                  // ------------------------------------------
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black12, // Grey background color
-                      borderRadius:
-                          BorderRadius.circular(16.0), // Set the border radius
-                    ),
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Description',
-                          style: TextStyle(
-                            fontSize: 19.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Text(
-                          'This course is the followup to Building Modern Web Applications in here. In this course, we go further than we did the first time around. We will build a sample E-Commerce application that consists of multiple, separate applications. ',
-                          style: TextStyle(fontSize: 15.0, height: 1.5),
-                        ),
-                        SizedBox(height: 5),
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(height: 15),
-
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white, // Grey background color
-                      borderRadius:
-                          BorderRadius.circular(16.0), // Set the border radius
-                    ),
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Instructor',
-                          style: TextStyle(
-                            fontSize: 19.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 16.0),
-                        Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'John Doe',
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.purple),
-                              ),
-                              Text('Ph.D.'),
-                              SizedBox(height: 8.0),
-                              Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 50.0,
-                                    backgroundImage:
-                                        AssetImage('images/CourseIntro1.jpg'),
+                            SizedBox(height: 16.0),
+                            Row(
+                              children: [
+                                Icon(Icons.arrow_right,
+                                    color: Colors.black, size: 17),
+                                Expanded(
+                                  // Wrap the text in an Expanded widget
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Text(
+                                      'A basic understanding of the programming language',
+                                    ),
                                   ),
-                                  SizedBox(width: 16.0),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5.0),
+                            Row(
+                              children: [
+                                Icon(Icons.arrow_right,
+                                    color: Colors.black, size: 17),
+                                Expanded(
+                                  // Wrap the text in an Expanded widget
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Text(
+                                      'A basic understanding of HTML, CSS and JavaScript',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5.0),
+                            Row(
+                              children: [
+                                Icon(Icons.arrow_right,
+                                    color: Colors.black, size: 17),
+                                Expanded(
+                                  // Wrap the text in an Expanded widget
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Text(
+                                        'A basic understanding of SQL Syntax'),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(height: 15),
+
+                      //---------------------------------- Description
+                      // -------------------------------------
+                      // ------------------------------------------
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black12, // Grey background color
+                          borderRadius: BorderRadius.circular(
+                              16.0), // Set the border radius
+                        ),
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Description',
+                              style: TextStyle(
+                                fontSize: 19.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10.0),
+                            Text(
+                              'This course is the followup to Building Modern Web Applications in here. In this course, we go further than we did the first time around. We will build a sample E-Commerce application that consists of multiple, separate applications. ',
+                              style: TextStyle(fontSize: 15.0, height: 1.5),
+                            ),
+                            SizedBox(height: 5),
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(height: 15),
+
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white, // Grey background color
+                          borderRadius: BorderRadius.circular(
+                              16.0), // Set the border radius
+                        ),
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Instructor',
+                              style: TextStyle(
+                                fontSize: 19.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 16.0),
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'John Doe',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.purple),
+                                  ),
+                                  Text('Ph.D.'),
+                                  SizedBox(height: 8.0),
+                                  Row(
                                     children: [
-                                      Text('Instructor Rating: 4.7'),
-                                      SizedBox(
-                                        height: 5,
+                                      CircleAvatar(
+                                        radius: 50.0,
+                                        backgroundImage: AssetImage(
+                                            'images/CourseIntro1.jpg'),
                                       ),
-                                      Text('Reviews: 863'),
-                                      SizedBox(
-                                        height: 5,
+                                      SizedBox(width: 16.0),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Instructor Rating: 4.7'),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text('Reviews: 863'),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text('Students: 2,345'),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text('Courses: 12'),
+                                        ],
                                       ),
-                                      Text('Students: 2,345'),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text('Courses: 12'),
                                     ],
+                                  ),
+                                  SizedBox(height: 16.0),
+                                  Container(
+                                    width: 330, // Adjust the width as needed
+                                    child: Text(
+                                      'I have twenty years of experience in professional software development, and twenty years of experience as a University professor. As an entrepreneur, I have worked with a broad range of clients, including Thomson.',
+                                      textAlign: TextAlign.justify,
+                                      style: TextStyle(
+                                        height:
+                                            1.5, // This sets the line height (line spacing)
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 16.0),
-                              Container(
-                                width: 330, // Adjust the width as needed
-                                child: Text(
-                                  'I have twenty years of experience in professional software development, and twenty years of experience as a University professor. As an entrepreneur, I have worked with a broad range of clients, including Thomson.',
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                    height:
-                                        1.5, // This sets the line height (line spacing)
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-
-                  //---------------------------------- Instructor
-                  // -------------------------------------
-                  // ------------------------------------------
-                  // Container(
-                  //   child: Column(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       // Instructor Title
-                  //       Padding(
-                  //         padding: EdgeInsets.all(16.0),
-                  //         child: Text(
-                  //           'Instructor',
-                  //           style: TextStyle(
-                  //             fontSize: 20,
-                  //             fontWeight: FontWeight.bold,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //
-                  //       // Instructor Info
-                  //       Padding(
-                  //         padding: EdgeInsets.all(16.0),
-                  //         child: Column(
-                  //           crossAxisAlignment: CrossAxisAlignment.start,
-                  //           children: [
-                  //             Text(
-                  //               'John Doe',
-                  //               style: TextStyle(
-                  //                   fontSize: 18,
-                  //                   fontWeight: FontWeight.bold,
-                  //                   color: Colors.purple),
-                  //             ),
-                  //             Text('Ph.D.'),
-                  //             SizedBox(height: 8.0),
-                  //             Row(
-                  //               children: [
-                  //                 CircleAvatar(
-                  //                   radius: 50.0,
-                  //                   backgroundImage:
-                  //                       AssetImage('images/CourseIntro1.jpg'),
-                  //                 ),
-                  //                 SizedBox(width: 16.0),
-                  //                 Column(
-                  //                   crossAxisAlignment:
-                  //                       CrossAxisAlignment.start,
-                  //                   children: [
-                  //                     Text('Instructor Rating: 4.7'),
-                  //                     SizedBox(
-                  //                       height: 5,
-                  //                     ),
-                  //                     Text('Reviews: 863'),
-                  //                     SizedBox(
-                  //                       height: 5,
-                  //                     ),
-                  //                     Text('Students: 2,345'),
-                  //                     SizedBox(
-                  //                       height: 5,
-                  //                     ),
-                  //                     Text('Courses: 12'),
-                  //                   ],
-                  //                 ),
-                  //               ],
-                  //             ),
-                  //             SizedBox(height: 16.0),
-                  //             Container(
-                  //               width: 330, // Adjust the width as needed
-                  //               child: Text(
-                  //                 'I have twenty years of experience in professional software development, and twenty years of experience as a University professor. As an entrepreneur, I have worked with a broad range of clients, including Thomson.',
-                  //                 textAlign: TextAlign.justify,
-                  //                 style: TextStyle(
-                  //                   height:
-                  //                       1.5, // This sets the line height (line spacing)
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //             SizedBox(
-                  //               height: 5,
-                  //             ),
-                  //
-                  //           ],
-                  //         ),
-                  //       ),
-                  //
-                  //
-                  //
-                  //
-                  //       SizedBox(
-                  //         height: 30,
-                  //       ),
-                  //       // Student Feedback Title
-                  //
-                  //       Padding(
-                  //         padding: EdgeInsets.all(16.0),
-                  //         child: Text(
-                  //           'Rating',
-                  //           style: TextStyle(
-                  //             fontSize: 20,
-                  //             fontWeight: FontWeight.bold,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //
-                  //       Padding(
-                  //         padding: EdgeInsets.all(16.0),
-                  //         child: Column(
-                  //           children: [
-                  //             _buildRatingBar('5 Stars', 5), // 95% rating
-                  //             _buildRatingBar('4 Stars', 4), // 80% rating
-                  //             _buildRatingBar('3 Stars', 3), // 60% rating
-                  //             _buildRatingBar('2 Stars', 2), // 40% rating
-                  //             _buildRatingBar('1 Star', 1), // 20% rating
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
