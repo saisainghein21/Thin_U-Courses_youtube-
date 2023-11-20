@@ -399,7 +399,7 @@ class _CourseCatDetailState extends State<CourseCatDetail> {
             SizedBox(height: 8),
 
             Container(
-              height: 250,
+              height: 280,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
@@ -418,18 +418,60 @@ class _CourseCatDetailState extends State<CourseCatDetail> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: SizedBox(
-                        width: 140,
-                        height: 140,
+                        width: 180,
+                        height: 180,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CourseCard(
-                                courseTitle: 'Course $index',
+                                courseTitle: index == 0
+                                    ? 'Python Basics'
+                                    : index == 1
+                                    ? 'Teaching Strategies'
+                                    : index == 2
+                                    ? 'Java Fundamentals'
+                                    : index == 3
+                                    ? 'JavaScript Mastery'
+                                    : index == 4
+                                    ? 'Vue.js Essentials'
+                                    : index == 5
+                                    ? 'HTML 5 Fundamentals'
+                                    : index == 6
+                                    ? 'CSS Styling'
+                                    : index == 7
+                                    ? 'PHP Web Development'
+                                    : index == 8
+                                    ? 'Ruby Programming'
+                                    : index == 9
+                                    ? 'React for Beginners'
+                                    : 'Default Title',
                                 authorName: 'Author Name',
                                 imageAssetPath: 'images/CourseIntro$index.jpg',
+                                description: index == 0
+                                    ? 'Versatile and readable programming language'
+                                    : index == 1
+                                    ? 'Educational professional guiding student learning'
+                                    : index == 2
+                                    ? 'Object-oriented, platform-independent programming'
+                                    : index == 3
+                                    ? 'Dynamic scripting for web development'
+                                    : index == 4
+                                    ? 'Progressive JavaScript framework for UIs'
+                                    : index == 5
+                                    ? 'Latest standard for web content and structure'
+                                    : index == 6
+                                    ? 'Stylesheet language for web page design'
+                                    : index == 7
+                                    ? 'Server-side scripting for dynamic web pages'
+                                    : index == 8
+                                    ? 'Dynamic, object-oriented programming language'
+                                    : index == 9
+                                    ? 'JavaScript library for building UI components'
+                                    : 'Default Description', // Default description if index is out of range
+
                               ),
                             ],
                           ),
@@ -504,7 +546,7 @@ class _CourseCatDetailState extends State<CourseCatDetail> {
             ),
             SizedBox(height: 8),
             Container(
-              height: 250,
+              height: 280,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
@@ -523,18 +565,60 @@ class _CourseCatDetailState extends State<CourseCatDetail> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: SizedBox(
-                        width: 140,
-                        height: 140,
+                        width: 180,
+                        height: 180,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CourseCard(
-                                courseTitle: 'Course $index',
+                                courseTitle: index == 0
+                                    ? 'Python Basics'
+                                    : index == 1
+                                    ? 'Teaching Strategies'
+                                    : index == 2
+                                    ? 'Java Fundamentals'
+                                    : index == 3
+                                    ? 'JavaScript Mastery'
+                                    : index == 4
+                                    ? 'Vue.js Essentials'
+                                    : index == 5
+                                    ? 'HTML 5 Fundamentals'
+                                    : index == 6
+                                    ? 'CSS Styling'
+                                    : index == 7
+                                    ? 'PHP Web Development'
+                                    : index == 8
+                                    ? 'Ruby Programming'
+                                    : index == 9
+                                    ? 'React for Beginners'
+                                    : 'Default Title',
                                 authorName: 'Author Name',
                                 imageAssetPath: 'images/CourseIntro$index.jpg',
+                                description: index == 0
+                                    ? 'Versatile and readable programming language'
+                                    : index == 1
+                                    ? 'Educational professional guiding student learning'
+                                    : index == 2
+                                    ? 'Object-oriented, platform-independent programming'
+                                    : index == 3
+                                    ? 'Dynamic scripting for web development'
+                                    : index == 4
+                                    ? 'Progressive JavaScript framework for UIs'
+                                    : index == 5
+                                    ? 'Latest standard for web content and structure'
+                                    : index == 6
+                                    ? 'Stylesheet language for web page design'
+                                    : index == 7
+                                    ? 'Server-side scripting for dynamic web pages'
+                                    : index == 8
+                                    ? 'Dynamic, object-oriented programming language'
+                                    : index == 9
+                                    ? 'JavaScript library for building UI components'
+                                    : 'Default Description', // Default description if index is out of range
+
                               ),
                             ],
                           ),
@@ -580,7 +664,7 @@ class _CourseCatDetailState extends State<CourseCatDetail> {
             ),
             SizedBox(height: 8),
             Container(
-              height: 250,
+              height: 280,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
@@ -599,18 +683,60 @@ class _CourseCatDetailState extends State<CourseCatDetail> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: SizedBox(
-                        width: 140,
-                        height: 140,
+                        width: 180,
+                        height: 180,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CourseCard(
-                                courseTitle: 'Course $index',
+                                courseTitle: index == 0
+                                    ? 'Python Basics'
+                                    : index == 1
+                                    ? 'Teaching Strategies'
+                                    : index == 2
+                                    ? 'Java Fundamentals'
+                                    : index == 3
+                                    ? 'JavaScript Mastery'
+                                    : index == 4
+                                    ? 'Vue.js Essentials'
+                                    : index == 5
+                                    ? 'HTML 5 Fundamentals'
+                                    : index == 6
+                                    ? 'CSS Styling'
+                                    : index == 7
+                                    ? 'PHP Web Development'
+                                    : index == 8
+                                    ? 'Ruby Programming'
+                                    : index == 9
+                                    ? 'React for Beginners'
+                                    : 'Default Title',
                                 authorName: 'Author Name',
                                 imageAssetPath: 'images/CourseIntro$index.jpg',
+                                description: index == 0
+                                    ? 'Versatile and readable programming language'
+                                    : index == 1
+                                    ? 'Educational professional guiding student learning'
+                                    : index == 2
+                                    ? 'Object-oriented, platform-independent programming'
+                                    : index == 3
+                                    ? 'Dynamic scripting for web development'
+                                    : index == 4
+                                    ? 'Progressive JavaScript framework for UIs'
+                                    : index == 5
+                                    ? 'Latest standard for web content and structure'
+                                    : index == 6
+                                    ? 'Stylesheet language for web page design'
+                                    : index == 7
+                                    ? 'Server-side scripting for dynamic web pages'
+                                    : index == 8
+                                    ? 'Dynamic, object-oriented programming language'
+                                    : index == 9
+                                    ? 'JavaScript library for building UI components'
+                                    : 'Default Description', // Default description if index is out of range
+
                               ),
                             ],
                           ),

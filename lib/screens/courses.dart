@@ -70,13 +70,15 @@ class _CourseListScreenState extends State<CourseListScreen> {
                         style: TextStyle(
                           color: selectedCategory == category
                               ? Colors.white
-                              : Colors.black, // Set text color based on selection
+                              : Colors
+                                  .white, // Set text color based on selection
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
                         primary: selectedCategory == category
                             ? Colors.deepPurpleAccent
-                            : Colors.blue, // Set background color based on selection
+                            : Colors
+                                .blue, // Set background color based on selection
                       ),
                     ),
                   );
@@ -118,7 +120,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
             ),
             SizedBox(height: 8),
             Container(
-              height: 250,
+              height: 280,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
@@ -137,18 +139,60 @@ class _CourseListScreenState extends State<CourseListScreen> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: SizedBox(
-                        width: 140,
-                        height: 140,
+                        width: 180,
+                        height: 180,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CourseCard(
-                                courseTitle: 'Course $index',
+                                courseTitle: index == 0
+                                    ? 'Python Basics'
+                                    : index == 1
+                                    ? 'Teaching Strategies'
+                                    : index == 2
+                                    ? 'Java Fundamentals'
+                                    : index == 3
+                                    ? 'JavaScript Mastery'
+                                    : index == 4
+                                    ? 'Vue.js Essentials'
+                                    : index == 5
+                                    ? 'HTML 5 Fundamentals'
+                                    : index == 6
+                                    ? 'CSS Styling'
+                                    : index == 7
+                                    ? 'PHP Web Development'
+                                    : index == 8
+                                    ? 'Ruby Programming'
+                                    : index == 9
+                                    ? 'React for Beginners'
+                                    : 'Default Title',
                                 authorName: 'Author Name',
                                 imageAssetPath: 'images/CourseIntro$index.jpg',
+                                description: index == 0
+                                    ? 'Versatile and readable programming language'
+                                    : index == 1
+                                    ? 'Educational professional guiding student learning'
+                                    : index == 2
+                                    ? 'Object-oriented, platform-independent programming'
+                                    : index == 3
+                                    ? 'Dynamic scripting for web development'
+                                    : index == 4
+                                    ? 'Progressive JavaScript framework for UIs'
+                                    : index == 5
+                                    ? 'Latest standard for web content and structure'
+                                    : index == 6
+                                    ? 'Stylesheet language for web page design'
+                                    : index == 7
+                                    ? 'Server-side scripting for dynamic web pages'
+                                    : index == 8
+                                    ? 'Dynamic, object-oriented programming language'
+                                    : index == 9
+                                    ? 'JavaScript library for building UI components'
+                                    : 'Default Description', // Default description if index is out of range
+
                               ),
                             ],
                           ),
@@ -193,7 +237,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
             ),
             SizedBox(height: 8),
             Container(
-              height: 250,
+              height: 280,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
@@ -212,18 +256,60 @@ class _CourseListScreenState extends State<CourseListScreen> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: SizedBox(
-                        width: 140,
-                        height: 140,
+                        width: 180,
+                        height: 180,
                         child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CourseCard(
-                                courseTitle: 'Course $index',
+                                courseTitle: index == 0
+                                    ? 'Python Basics'
+                                    : index == 1
+                                    ? 'Teaching Strategies'
+                                    : index == 2
+                                    ? 'Java Fundamentals'
+                                    : index == 3
+                                    ? 'JavaScript Mastery'
+                                    : index == 4
+                                    ? 'Vue.js Essentials'
+                                    : index == 5
+                                    ? 'HTML 5 Fundamentals'
+                                    : index == 6
+                                    ? 'CSS Styling'
+                                    : index == 7
+                                    ? 'PHP Web Development'
+                                    : index == 8
+                                    ? 'Ruby Programming'
+                                    : index == 9
+                                    ? 'React for Beginners'
+                                    : 'Default Title',
                                 authorName: 'Author Name',
                                 imageAssetPath: 'images/CourseIntro$index.jpg',
+                                description: index == 0
+                                    ? 'Versatile and readable programming language'
+                                    : index == 1
+                                    ? 'Educational professional guiding student learning'
+                                    : index == 2
+                                    ? 'Object-oriented, platform-independent programming'
+                                    : index == 3
+                                    ? 'Dynamic scripting for web development'
+                                    : index == 4
+                                    ? 'Progressive JavaScript framework for UIs'
+                                    : index == 5
+                                    ? 'Latest standard for web content and structure'
+                                    : index == 6
+                                    ? 'Stylesheet language for web page design'
+                                    : index == 7
+                                    ? 'Server-side scripting for dynamic web pages'
+                                    : index == 8
+                                    ? 'Dynamic, object-oriented programming language'
+                                    : index == 9
+                                    ? 'JavaScript library for building UI components'
+                                    : 'Default Description', // Default description if index is out of range
+
                               ),
                             ],
                           ),
@@ -249,20 +335,27 @@ class CourseCard extends StatelessWidget {
   final String courseTitle;
   final String authorName;
   final String imageAssetPath;
+  final String description;
   final double titleFontSize;
+  final TextStyle titleStyle;
+  final TextStyle authorStyle;
 
   CourseCard({
     required this.courseTitle,
     required this.authorName,
     required this.imageAssetPath,
+    required this.description,
     this.titleFontSize = 16.0,
+    this.titleStyle =
+        const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    this.authorStyle = const TextStyle(fontSize: 14),
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
-      margin: EdgeInsets.only(right: 16),
+      width: 200,
+      //margin: EdgeInsets.only(right: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -284,7 +377,7 @@ class CourseCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
                   image: AssetImage(imageAssetPath),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
@@ -293,41 +386,83 @@ class CourseCard extends StatelessWidget {
           Text(
             courseTitle,
             style: TextStyle(
+              color: Color(0xFF216CAF),
               fontWeight: FontWeight.bold,
-              fontSize: 16,
+              fontSize: 17,
             ),
           ),
           Text(
             authorName,
             style: TextStyle(
-              color: Colors.grey,
+              color: Color(0xFFABABAB),
+              fontSize: 13,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          //SizedBox(height: 8),
+          Text(
+            description,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 13,
+              fontWeight: FontWeight.w300,
             ),
           ),
           SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.only(left: 0.0),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CourseDetailScreen(
-                      courseTitle: courseTitle,
-                      title: '',
+          Center(
+            child: Container(
+              width: 50,
+              height: 25,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 0.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CourseDetailScreen(
+                          courseTitle: courseTitle,
+                          title: '',
+                        ),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: null,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(2.0),
+                    ),
+                    side: BorderSide(
+                      color: Color(0xFF176BB4),
+                    ),
+                    padding: EdgeInsets.all(0),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ).copyWith(
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+                      if (states.contains(MaterialState.pressed)) {
+                        // Return the end color of the gradient when the button is pressed
+                        return Color(0xFF32579F);
+                      }
+                      // Return the start color of the gradient for other states
+                      return Color(0xFF176BB4);
+                    }),
+                  ),
+                  child: Container(
+                    width: 60, // Adjust the width as needed
+                    height: 30, // Adjust the height as needed
+                    alignment: Alignment.center,
+                    child: Text(
+                      'View',
+                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300, color: Colors.white),
                     ),
                   ),
-                );
-              },
-              child: Text(
-                'View Course',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold
                 ),
               ),
-
             ),
           ),
+
+
         ],
       ),
     );
