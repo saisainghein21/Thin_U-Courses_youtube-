@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/quiz.dart';
 import '../models/channel_model.dart';
 import '../models/video_model.dart';
 import '../services/api_service.dart';
@@ -108,7 +109,6 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
             // ],
           ),
           child: Row(
-
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
@@ -173,13 +173,17 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
                 return false;
               },
               child: ListView.builder(
-                itemCount: 1 + _channel!.videos.length,
+                itemCount: 2 + _channel!.videos.length,
                 itemBuilder: (BuildContext context, int index) {
                   if (index == 0) {
-                    return _buildProfileInfo();
+                    return _buildProfileInfo(); // Static row
+                  } else if (index == 1) {
+                    // Add your new static row here
+                    return _buildStaticRow(context);
+                  } else {
+                    Video video = _channel!.videos[index - 2];
+                    return _buildVideo(video);
                   }
-                  Video video = _channel!.videos[index - 1];
-                  return _buildVideo(video);
                 },
               ),
             )
@@ -190,6 +194,59 @@ class _CourseLessonScreenState extends State<CourseLessonScreen> {
                 ),
               ),
             ),
+    );
+  }
+
+  Widget _buildStaticRow(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // Navigate to the desired screen here
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => QuizScreen(),
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 3.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(5),
+          child: Container(
+            color: Color(0x0D000000),
+            padding: EdgeInsets.all(16.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(right: 5.0),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Icon(
+                            Icons.quiz_outlined,
+                            color: Color(0xFF4d4dbf),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10.0),
+                      Text(
+                        "Quiz",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -640,7 +640,7 @@ class CourseDetailScreen extends StatelessWidget {
                             Container(
                               height: 380,
                               color: Colors.white,
-                              child: CourseLessonScreen(), //CoursePage(),
+                              child: CourseLessonScreen(),
                             ),
                           ],
                         ),
